@@ -1,9 +1,10 @@
+const path = require("path")
 // webpack.config.js
 module.exports = {
   entry: "./main.js",
   mode: "development",
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
   resolve: {

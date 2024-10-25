@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./communication.js">
+  </script>
+  <script>
+    console.log(Module, 1111111)
+    // const Module = require("./communication.js");
+
+    // // Wasm模块加载并初始化完成后被调用的回调函数
+    const onRuntimeInitialized = (_) => {
+      const communicateModule = new Module.Communication();
+
+      // 调用 C++ 层的函数
+      communicateModule.executeCb();
+
+      // js 层的函数在 C++ 层被调用
+      communicateModule.monitorCb(() => {
+        console.log("这是 js 层的函数在 C++ 层被调用");
+      }, true);
+
+      // 编译 C++ 代码时在末尾插入的额外的 js 代码
+      const result = Module.safelyParse("{name: 'icebergfeng'}");
+      console.log(result);
+    };
+    Module(onRuntimeInitialized)
+
+  </script>
+</body>
+
+</html>

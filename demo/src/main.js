@@ -1,9 +1,9 @@
-const Module = require("./communication.wasm.js")
-console.log(Module)
+import Module from "./communication.wasm.js"
+// console.log(Module.safelyParse("{name: 'icebergfeng'}"), "Module0000000")
+
 // Wasm模块加载并初始化完成后被调用的回调函数
 Module.onRuntimeInitialized = (_) => {
   const communicateModule = new Module.Communication()
-
   // 调用 C++ 层的函数
   communicateModule.executeCb()
 

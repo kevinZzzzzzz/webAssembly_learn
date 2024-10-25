@@ -9,7 +9,13 @@
 </head>
 
 <body>
-  <script type="module" src="./dist/bundle.js"></script>
+  <script src="./fib.js"></script>
+  <script>
+    window.Module = {
+      print: console.log,
+    }
+    fib(window.Module);
+  </script>
 </body>
 
 </html>
