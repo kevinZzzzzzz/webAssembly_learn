@@ -17,6 +17,9 @@ importers:
       hoslink-xxx:
         specifier: ^1.1.1
         version: 1.1.2
+      quick-wasm-js:
+        specifier: ^1.0.1
+        version: 1.0.1
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -2116,6 +2119,9 @@ packages:
   quick-lru@4.0.1:
     resolution: {integrity: sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==, tarball: https://registry.npmmirror.com/quick-lru/-/quick-lru-4.0.1.tgz}
     engines: {node: '>=8'}
+
+  quick-wasm-js@1.0.1:
+    resolution: {integrity: sha512-WLWvgH409IeaZNz3+ugBkkYH/2DyK/R3Hyr098e5vo5f+yKpNKNfA6yPwM01DIOMALFK0Yu7q0JmNGfsZTFxNA==, tarball: https://registry.npmmirror.com/quick-wasm-js/-/quick-wasm-js-1.0.1.tgz}
 
   react-dom@18.3.1:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==, tarball: https://registry.npmmirror.com/react-dom/-/react-dom-18.3.1.tgz}
@@ -4782,6 +4788,8 @@ snapshots:
   queue-microtask@1.2.3: {}
 
   quick-lru@4.0.1: {}
+
+  quick-wasm-js@1.0.1: {}
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:

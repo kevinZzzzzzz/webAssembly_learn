@@ -28,7 +28,7 @@ var readyPromise = new Promise((resolve, reject) => {
   readyPromiseResolve = resolve;
   readyPromiseReject = reject;
 });
-["_memory","_add","___indirect_function_table","_main","onRuntimeInitialized"].forEach((prop) => {
+["_memory","_add","_subtract","_multiply","_divide","___indirect_function_table","_main","onRuntimeInitialized"].forEach((prop) => {
   if (!Object.getOwnPropertyDescriptor(readyPromise, prop)) {
     Object.defineProperty(readyPromise, prop, {
       get: () => abort('You are getting ' + prop + ' on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js'),
@@ -1248,6 +1248,9 @@ var wasmExports = createWasm();
 var ___wasm_call_ctors = createExportWrapper('__wasm_call_ctors', 0);
 var _main = Module['_main'] = createExportWrapper('__main_argc_argv', 2);
 var _add = Module['_add'] = createExportWrapper('add', 2);
+var _subtract = Module['_subtract'] = createExportWrapper('subtract', 2);
+var _multiply = Module['_multiply'] = createExportWrapper('multiply', 2);
+var _divide = Module['_divide'] = createExportWrapper('divide', 2);
 var _fflush = createExportWrapper('fflush', 1);
 var _strerror = createExportWrapper('strerror', 1);
 var _emscripten_stack_init = () => (_emscripten_stack_init = wasmExports['emscripten_stack_init'])();
@@ -1605,7 +1608,7 @@ function run(args = arguments_) {
     return;
   }
 
-  stackCheckInit();
+    stackCheckInit();
 
   if (!calledPrerun) {
     calledPrerun = 1;
