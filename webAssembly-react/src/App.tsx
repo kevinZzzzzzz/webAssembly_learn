@@ -11,17 +11,22 @@ import { AllRouters as routes } from "./router/index";
 import DefaultLayout from "./layout/Default";
 import api from "@/api";
 import CFun from "../C/CFun";
+import Web3 from "web3";
 
+console.log(Web3.givenProvider, "Web3.givenProvider");
 declare global {
   interface Window {
     $api: any;
     $CFun: any;
+    $web3: any;
+    (key: string): any;
   }
 }
 /* 
   设置全局变量
 */
 window.$api = { ...api };
+window.$web3 = new Web3(Web3.givenProvider || "ws://localhost:8881");
 
 // 1 构造wasm模块加载promise
 const CFunPromise = CFun({
