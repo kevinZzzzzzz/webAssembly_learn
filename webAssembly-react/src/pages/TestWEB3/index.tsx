@@ -8,7 +8,6 @@ import Web3 from "web3";
  *  web3-utils 包含一些对 DApp 开发者有用的方法。
  */
 console.log(window.$web3, "window.$web3");
-console.log(window.ethereum);
 // 检查是否存在 ethereum 对象
 if (window.ethereum) {
   const ethereum = window.ethereum;
@@ -23,14 +22,30 @@ if (window.ethereum) {
 
       // 实例化 Web3 对象
       const web3 = new Web3(ethereum);
-
+      /**
+       * 获取节点的以太坊协议版本
+       */
+      web3.eth.getProtocolVersion().then((res) => {
+        console.log(parseInt(res, 16), "res-----getProtocolVersion-----");
+      });
+      /**
+       * 网络状态查询
+       * 是否有节点连接监昕，返回tnue/false
+       */
+      web3.eth.net.isListening().then((res) => {
+        console.log(res, "res-----isListening-----");
+      });
       // 现在可以使用 web3 对象进行以太坊操作
       web3.eth.getBalance(account).then((balance) => {
         console.log(Number(balance), "balance00000");
         console.log(BigInt(0));
       });
-      web3.eth.getBlock(48).then((result) => {
-        console.log(JSON.stringify(result), 2222222);
+      // web3.eth.getBlock(48).then((result) => {
+      //   console.log(JSON.stringify(result), 2222222);
+      // });
+      /**gasPrice 查询 */
+      web3.eth.getGasPrice().then((res: any) => {
+        console.log(Number(res), "getGasPrice---------");
       });
     })
     .catch((error) => {

@@ -1,4 +1,11 @@
-## 安装
+## Emscripten 介绍和安装
+
+在 web 端执行 C/C++代码，需要有工具将代码编译成.wasm(WebAssembly 执行模块)文件，这类工具有很多，目前比较成熟的是 Enscripten。
+Emscripten 工具能够将一段 C/C++代码，编译出：
+
+- 一个.wasm 模块
+- 用来加载和运行该模块的 JavaScript”胶水“代码
+- 一个用来展示代码运行结果的 HTML 文档 工作流程如下：
 
 ```
   git clone https://github.com/juj/emsdk.git
